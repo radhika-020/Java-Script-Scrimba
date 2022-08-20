@@ -1,0 +1,29 @@
+body{
+    background-image: url("BlackJack.jpg");
+    background-size: cover;
+    text-align: center;
+}
+
+
+h1{
+    color: white;
+}
+
+.paragraph{
+    color: white
+}
+
+#message-el{
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-style: italic;
+}
+
+#start-btn{
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    color: green;
+    background-color: goldenrod;;
+}
