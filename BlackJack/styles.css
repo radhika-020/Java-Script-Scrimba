@@ -38,5 +38,11 @@ h1{
     color: green;
     background-color: goldenrod;
     width: 150px;
-    
+}
+
+#player-el{
+    color: white;
+    font-size: larger;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
 }

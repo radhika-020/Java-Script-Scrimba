@@ -10,6 +10,17 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.querySelector("#sum-el")
 let cardsEl = document.querySelector("#cards-el")
 
+// let playerName = "Radhika"
+// let playerChips = 145              // both these variables can be combined to one using objects like below.
+
+let player = {
+    name : "Radhika",
+    chips : 1450000000000000
+}
+
+let playerEl = document.getElementById("player-el")
+playerEl.textContent = player.name + ":" + " " + "$" + player.chips
+
 function startGame(){
     // renderGame()
     isAlive=true
@@ -59,9 +70,10 @@ function renderGame(){
 
 function newCard(){
     console.log("Drawing a new card from the deck!")
-    let card = getRandomCard()
-    sum += card
-    cards.push(card)
-    renderGame()
-    
+    if(isAlive===true && hasBlackJack===false){
+        let card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
+    }
 }
