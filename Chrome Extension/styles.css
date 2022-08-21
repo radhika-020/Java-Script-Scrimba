@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
+    min-width: 400px;
 }
 
 input{
@@ -21,4 +22,19 @@ button{
     padding: 10px;
     border: none;
     font-weight: bold;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+li a{ 
+    color: green;
+}
+/* Style only when the anchor tag is inside the list tag. */
+
+li{
+    margin-top: 5px;
 }
