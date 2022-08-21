@@ -14,8 +14,8 @@ let cardsEl = document.querySelector("#cards-el")
 // let playerChips = 145              // both these variables can be combined to one using objects like below.
 
 let player = {
-    name : "Radhika",
-    chips : 1450000000000000
+    name : "Amount",
+    chips : 14500
 }
 
 let playerEl = document.getElementById("player-el")
