@@ -15,14 +15,54 @@ const ulEl = document.getElementById("ul-el")
 // localStorage.clear()
 
 
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
+const deleteBtn = document.getElementById("delete-btn")
+const tabBtn = document.getElementById("tab-btn")
+
+if(leadsFromLocalStorage){
+    leads = leadsFromLocalStorage
+    render(myLeads)
+}
+
+tabBtn.addEventListener("click", function(){
+    // console.log(tabs[0].url)
+    // Grab the URL of the curent tab
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
+        render(myLeads)
+    })
+    
+})
+
+function render(leads){
+    let listItems =  ""
+    for(i=0; i<leads.length; i++){
+        // listItems += "<li><a target='_blank' href=' " + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
+        listItems += `
+        <li>
+            <a target = '_blank' href = '${leads[i]}'>
+                ${leads[i]}
+            </a>
+        </li>
+    `
+    }
+    ulEl.innerHTML = listItems
+}
+
+deleteBtn.addEventListener("dblclick", function() {
+    localStorage.clear()
+    myLeads=[]
+    render(myLeads)
+})
 
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
     inputEl.value=""
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
-    renderLeads()
+    render(myLeads)
 })
+
 
 // function renderLeads(){
 // for(let i =0; i<myLeads.length; i++){
@@ -35,17 +75,3 @@ inputBtn.addEventListener("click", function() {
 //     ulEl.append(li)
 //     }}
 
-function renderLeads(){
-    let listItems =  ""
-    for(i=0; i<myLeads.length; i++){
-        // listItems += "<li><a target='_blank' href=' " + myLeads[i] + "'>" + myLeads[i] + "</a></li>"
-        listItems += `
-        <li>
-            <a target = '_blank' href = '${myLeads[i]}'>
-                ${myLeads[i]}
-            </a>
-        </li>
-    `
-    }
-    ulEl.innerHTML = listItems
-}

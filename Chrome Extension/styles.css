@@ -22,6 +22,7 @@ button{
     padding: 10px;
     border: none;
     font-weight: bold;
+    border: 1px solid green;
 }
 
 ul{
@@ -37,4 +38,9 @@ li a{
 
 li{
     margin-top: 5px;
+}
+
+#delete-btn{
+    color: green;
+    background-color: white;
 }
